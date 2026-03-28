@@ -34,8 +34,6 @@ public class User {
     private Instant createdAt =  Instant.now();
     private Instant updatedAt = Instant.now();
 
-    private String gender;
-
     @Enumerated(EnumType.STRING)
     private ProviderType providerType = ProviderType.LOCAL;
 
@@ -56,10 +54,7 @@ public class User {
 
     @PreUpdate
     protected void onUpdate() {
-        Instant now = Instant.now();
-        if (updatedAt == null) {
-            updatedAt = now;
-        }
+        updatedAt= Instant.now();
     }
 
 }
